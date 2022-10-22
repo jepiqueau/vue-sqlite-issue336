@@ -1,0 +1,7 @@
+{
+  "name": "vue-issue336",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue"
+}
