@@ -23,10 +23,45 @@ import '@ionic/vue/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 
-const app = createApp(App)
-  .use(IonicVue)
-  .use(router);
-  
-router.isReady().then(() => {
-  app.mount('#app');
+/* SQLite imports */
+import { defineCustomElements as jeepSqlite, applyPolyfills } from "jeep-sqlite/loader";
+import { Capacitor } from '@capacitor/core';
+import { CapacitorSQLite, SQLiteConnection } from '@capacitor-community/sqlite';
+import { PropsSqlite } from './interfaces/interfaces';
+import { createPinia } from 'pinia' // Import
+
+applyPolyfills().then(() => {
+  jeepSqlite(window);
 });
+
+window.addEventListener('DOMContentLoaded', async () => {
+  const platform = Capacitor.getPlatform();
+  const sqlite: SQLiteConnection = new SQLiteConnection(CapacitorSQLite)
+  const app = createApp(App)
+    .use(IonicVue)
+    .use(createPinia())
+    .use(router);
+  // store sqlite to be a singleton and platform
+  const pSqlite: PropsSqlite = {sqlite: sqlite, platform: platform};
+  app.config.globalProperties.$pSqlite = pSqlite;
+
+  try {
+    // create jeep-sqlite for web platform
+    if(platform === "web") {
+      // Create the 'jeep-sqlite' Stencil component
+      const jeepSqlite = document.createElement('jeep-sqlite');
+      document.body.appendChild(jeepSqlite);
+      await customElements.whenDefined('jeep-sqlite');
+      // Initialize the Web store
+      await sqlite.initWebStore();
+    }
+    // mount the app
+    router.isReady().then(() => {
+      app.mount('#app');
+    });
+  } catch (err) {
+    console.log(`Error: ${err}`);
+    throw new Error(`Error: ${err}`)
+  }
+});
+  
