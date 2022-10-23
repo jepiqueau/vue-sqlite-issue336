@@ -4,13 +4,13 @@
 <p align="center"><strong><code>vue-sqlite-issue336</code></strong></p>
 <p align="center">Ionic/Vue application demonstrating the use of the</p>
 <p align="center"><strong><code>@capacitor-community/sqlite plugin and Pinia<code></strong></p>
-<p align="center"><strong><code>Issue336<code></strong></p>
+<p align="center"><strong><code>Issue336<code></strong></p><br>
 <p align="center" style="font-size:50px;color:red"><strong>CAPACITOR 4 </strong></p><br>
 <br>
 <p align="center">
   <img src="https://img.shields.io/maintenance/yes/2022?style=flat-square" />
-  <a href="https://github.com/jepiqueau/vue-sqlite-app-starter"><img src="https://img.shields.io/github/license/jepiqueau/vue-sqlite-app-starter?style=flat-square" /></a>
-  <a href="https://github.com/jepiqueau/vue-sqlite-app-starter"><img src="https://img.shields.io/github/package-json/v/jepiqueau/vue-sqlite-app-starter/main?style=flat-square" /></a>
+  <a href="https://github.com/jepiqueau/vue-sqlite-issue336"><img src="https://img.shields.io/github/license/jepiqueau/vue-sqlite-issue336?style=flat-square" /></a>
+  <a href="https://github.com/jepiqueau/vue-sqlite-issue336"><img src="https://img.shields.io/github/package-json/v/jepiqueau/vue-sqlite-issue336/main?style=flat-square" /></a>
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 <a href="#contributors-"><img src="https://img.shields.io/badge/all%20contributors-2-orange?style=flat-square" /></a>
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
