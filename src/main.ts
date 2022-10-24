@@ -37,12 +37,12 @@ applyPolyfills().then(() => {
 window.addEventListener('DOMContentLoaded', async () => {
   const platform = Capacitor.getPlatform();
   const sqlite: SQLiteConnection = new SQLiteConnection(CapacitorSQLite)
+  // store sqlite to be a singleton and platform
+  const pSqlite: PropsSqlite = {sqlite: sqlite, platform: platform};
   const app = createApp(App)
     .use(IonicVue)
     .use(createPinia())
     .use(router);
-  // store sqlite to be a singleton and platform
-  const pSqlite: PropsSqlite = {sqlite: sqlite, platform: platform};
   app.config.globalProperties.$pSqlite = pSqlite;
 
   try {
